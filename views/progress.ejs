@@ -11,7 +11,10 @@
 <body class="bg-background text-text font-primary">
   <header class="bg-primary text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      <div class="flex items-center">
+        <img src="/images/logo.ico" alt="BudgetBuddy Logo" class="h-1 w-auto">
+        <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      </div>
       <nav>
         <a href="/" class="mr-4">Home</a>
         <a href="/onboarding" class="mr-4">Onboarding</a>
@@ -22,64 +25,65 @@
     </div>
   </header>
   <main class="min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-4xl mx-auto w-full">
-      <h1 class="text-3xl font-heading text-primary mb-8 text-center">Budget Progress Tracker</h1>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-2xl font-heading mb-4">Spending vs Budget</h2>
-          <canvas id="progressChart" width="400" height="400"></canvas>
-        </div>
-        <div>
-          <h2 class="text-2xl font-heading mb-4">Monthly Progress</h2>
-          <div class="bg-gray-200 rounded-full h-6 mb-4">
-            <div class="bg-accent h-6 rounded-full" style="width: 75%"></div>
-          </div>
-          <p class="text-center">75% of the month completed</p>
-          <div class="mt-6 space-y-2">
-            <p>✅ Rent: On track</p>
-            <p>⚠️ Food: Slightly over</p>
-            <p>✅ Transportation: Under budget</p>
-            <p>✅ Savings: On target</p>
-          </div>
-        </div>
+  <div class="max-w-4xl mx-auto w-full">
+    <h1 class="text-3xl font-heading text-primary mb-8 text-center">Student Budget Progress Tracker</h1>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-heading mb-4">Spending vs Budget</h2>
+        <canvas id="progressChart" width="400" height="400" aria-label="Spending vs budget doughnut chart"></canvas>
       </div>
-      <div class="mt-8 text-center">
-        <p class="text-lg text-secondary">Keep up the great work! You're building healthy financial habits.</p>
+      <div>
+        <h2 class="text-2xl font-heading mb-4">Monthly Progress</h2>
+        <div class="bg-gray-200 rounded-full h-6 mb-4" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="bg-accent h-6 rounded-full" style="width: 75%"></div>
+        </div>
+        <p class="text-center">75% of the month completed</p>
+        <div class="mt-6 space-y-2">
+          <p>✅ Housing/Meal Plan: On track</p>
+          <p>⚠️ Food/Groceries: Slightly over</p>
+          <p>✅ Transportation: Under budget</p>
+          <p>✅ Tuition/Loans: On target</p>
+          <p>✅ Savings: Building up</p>
+        </div>
       </div>
     </div>
-  </main>
+    <div class="mt-8 text-center">
+      <p class="text-lg text-secondary">Great job balancing studies and finances! Keep tracking to stay on top of your goals.</p>
+    </div>
+  </div>
+</main>
   <footer class="bg-primary text-white p-4 mt-8">
     <div class="container mx-auto text-center">
       <p>&copy; 2026 BudgetBuddy. All rights reserved.</p>
     </div>
   </footer>
   <script>
-    const ctx = document.getElementById('progressChart').getContext('2d');
-    const progressData = {
-      labels: ['Spent', 'Remaining'],
-      datasets: [{
-        data: [1800, 700],
-        backgroundColor: ['#FF6384', '#36A2EB']
-      }]
-    };
-    const config = {
-      type: 'doughnut',
-      data: progressData,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Monthly Spending'
-          }
+  const ctx = document.getElementById('progressChart').getContext('2d');
+  const progressData = {
+    labels: ['Spent', 'Remaining'],
+    datasets: [{
+      data: [1800, 700],
+      backgroundColor: ['#FF6384', '#36A2EB']
+    }]
+  };
+  const config = {
+    type: 'doughnut',
+    data: progressData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Monthly Spending'
         }
       }
-    };
-    new Chart(ctx, config);
-    lucide.createIcons();
-  </script>
+    }
+  };
+  new Chart(ctx, config);
+  lucide.createIcons();
+</script>
 </body>
 </html>

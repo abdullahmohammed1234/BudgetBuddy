@@ -11,7 +11,10 @@
 <body class="bg-background text-text font-primary">
   <header class="bg-primary text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      <div class="flex items-center">
+        <img src="/images/logo.ico" alt="BudgetBuddy Logo" class="site-logo">
+        <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      </div>
       <nav>
         <a href="/" class="mr-4">Home</a>
         <a href="/onboarding" class="mr-4">Onboarding</a>
@@ -22,36 +25,41 @@
     </div>
   </header>
   <main class="min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-md mx-auto w-full">
-      <h1 class="text-3xl font-heading text-primary mb-8 text-center">Let's Create Your Budget</h1>
-      <form action="/budget" method="GET" class="space-y-6">
-        <div>
-          <label for="income" class="block text-sm font-medium mb-2">Monthly Income ($)</label>
-          <input type="number" id="income" name="income" required class="w-full p-3 border border-gray-300 rounded-lg">
-        </div>
-        <div>
-          <label for="rent" class="block text-sm font-medium mb-2">Rent/Utilities ($)</label>
-          <input type="number" id="rent" name="rent" required class="w-full p-3 border border-gray-300 rounded-lg">
-        </div>
-        <div>
-          <label for="goals" class="block text-sm font-medium mb-2">Financial Goals</label>
-          <select id="goals" name="goals" class="w-full p-3 border border-gray-300 rounded-lg">
-            <option value="saving">Build Savings</option>
-            <option value="debt">Pay off Debt</option>
-            <option value="emergency">Emergency Fund</option>
-          </select>
-        </div>
-        <div>
-          <label for="preference" class="block text-sm font-medium mb-2">Budgeting Style</label>
-          <select id="preference" name="preference" class="w-full p-3 border border-gray-300 rounded-lg">
-            <option value="strict">Strict (50/30/20 rule)</option>
-            <option value="flexible">Flexible</option>
-          </select>
-        </div>
-        <button type="submit" class="text-accent px-16 py-6 text-xl hover:text-secondary transition">Generate My Budget</button>
-      </form>
-    </div>
-  </main>
+  <div class="max-w-md mx-auto w-full">
+    <h1 class="text-3xl font-heading text-primary mb-8 text-center">Let's Create Your Student Budget</h1>
+    <form action="/budget" method="POST" class="space-y-6">
+      <div>
+        <label for="income" class="block text-sm font-medium mb-2">Monthly Income (jobs, scholarships, etc.) ($)</label>
+        <input type="number" id="income" name="income" required class="w-full p-3 border border-gray-300 rounded-lg" aria-describedby="income-help">
+        <small id="income-help" class="text-gray-600">Include part-time work, grants, or allowances.</small>
+      </div>
+      <div>
+        <label for="rent" class="block text-sm font-medium mb-2">Housing/Meal Plan ($)</label>
+        <input type="number" id="rent" name="rent" required class="w-full p-3 border border-gray-300 rounded-lg">
+      </div>
+      <div>
+        <label for="tuition" class="block text-sm font-medium mb-2">Tuition/Student Loans ($)</label>
+        <input type="number" id="tuition" name="tuition" class="w-full p-3 border border-gray-300 rounded-lg">
+      </div>
+      <div>
+        <label for="goals" class="block text-sm font-medium mb-2">Financial Goals</label>
+        <select id="goals" name="goals" class="w-full p-3 border border-gray-300 rounded-lg">
+          <option value="saving">Build Emergency Savings</option>
+          <option value="debt">Pay off Student Loans</option>
+          <option value="graduation">Save for Graduation</option>
+        </select>
+      </div>
+      <div>
+        <label for="preference" class="block text-sm font-medium mb-2">Budgeting Style</label>
+        <select id="preference" name="preference" class="w-full p-3 border border-gray-300 rounded-lg">
+          <option value="strict">Strict (50/30/20 rule)</option>
+          <option value="flexible">Flexible for Student Life</option>
+        </select>
+      </div>
+      <button type="submit" class="text-accent px-16 py-6 text-xl hover:text-secondary transition">Generate My Budget</button>
+    </form>
+  </div>
+</main>
   <footer class="bg-primary text-white p-4 mt-8">
     <div class="container mx-auto text-center">
       <p>&copy; 2026 BudgetBuddy. All rights reserved.</p>

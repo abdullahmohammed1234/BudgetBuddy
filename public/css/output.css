@@ -100,3 +100,13 @@ nav a {
 @media (min-width: 768px) {
   .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+.site-logo {
+  width: 150px;      /* adjust as needed */
+  height: auto;      /* preserves aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    width: 120px;
+  }
+}

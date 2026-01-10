@@ -11,7 +11,10 @@
 <body class="bg-background text-text font-primary">
   <header class="bg-primary text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      <div class="flex items-center">
+        <img src="/images/logo.ico" alt="BudgetBuddy Logo" class="h-1 w-auto">
+        <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      </div>
       <nav>
         <a href="/" class="mr-4">Home</a>
         <a href="/onboarding" class="mr-4">Onboarding</a>
@@ -22,70 +25,70 @@
     </div>
   </header>
   <main class="min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-4xl mx-auto w-full">
-      <h1 class="text-3xl font-heading text-primary mb-8 text-center">Your Personalized Budget</h1>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-2xl font-heading mb-4">Monthly Breakdown</h2>
-          <div class="space-y-2">
-            <p><strong>Income:</strong> $<%= budget.income %></p>
-            <% budget.categories.forEach(cat => { %>
-              <p><strong><%= cat.name %>:</strong> $<%= cat.amount %></p>
-            <% }) %>
-          </div>
-          <div class="mt-6 p-4 bg-accent text-white rounded-lg">
-            <p class="text-lg">💡 Based on the 50/30/20 rule: 50% needs, 30% wants, 20% savings.</p>
-            <p class="mt-2">This allocation helps you build financial stability while enjoying life.</p>
-          </div>
+  <div class="max-w-4xl mx-auto w-full">
+    <h1 class="text-3xl font-heading text-primary mb-8 text-center">Your Personalized Student Budget</h1>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-heading mb-4">Monthly Breakdown</h2>
+        <div class="space-y-2">
+          <p><strong>Income:</strong> $<%= budget.income %></p>
+          <% budget.categories.forEach(cat => { %>
+            <p><strong><%= cat.name %>:</strong> $<%= cat.amount %></p>
+          <% }) %>
         </div>
-        <div>
-          <canvas id="budgetChart" width="400" height="400"></canvas>
+        <div class="mt-6 p-4 bg-accent text-white rounded-lg">
+          <p class="text-lg">💡 Tailored for students: Prioritizing essentials like tuition and housing while allowing for fun and savings.</p>
+          <p class="mt-2">This helps you balance academics, work, and social life without financial worry.</p>
         </div>
       </div>
-      <div class="mt-8 text-center">
-        <a href="/progress" class="text-accent px-6 py-3 hover:text-secondary transition">Track My Progress</a>
+      <div>
+        <canvas id="budgetChart" width="400" height="400" aria-label="Budget allocation pie chart"></canvas>
       </div>
     </div>
-  </main>
+    <div class="mt-8 text-center">
+      <a href="/progress" class="text-accent px-6 py-3 hover:text-secondary transition">Track My Progress</a>
+    </div>
+  </div>
+</main>
   <footer class="bg-primary text-white p-4 mt-8">
     <div class="container mx-auto text-center">
       <p>&copy; 2026 BudgetBuddy. All rights reserved.</p>
     </div>
   </footer>
   <script>
-    const ctx = document.getElementById('budgetChart').getContext('2d');
-    const chartData = {
-      labels: <%- JSON.stringify(labels) %>,
-      datasets: [{
-        data: <%- JSON.stringify(data) %>,
-        backgroundColor: [
-          '#FF6384',
-          '#36A2EB',
-          '#FFCE56',
-          '#4BC0C0',
-          '#9966FF',
-          '#FF9F40'
-        ]
-      }]
-    };
-    const config = {
-      type: 'pie',
-      data: chartData,
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Budget Allocation'
-          }
+  const ctx = document.getElementById('budgetChart').getContext('2d');
+  const chartData = {
+    labels: <%- JSON.stringify(labels) %>,
+    datasets: [{
+      data: <%- JSON.stringify(data) %>,
+      backgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+        '#FFCE56',
+        '#4BC0C0',
+        '#9966FF',
+        '#FF9F40'
+      ]
+    }]
+  };
+  const config = {
+    type: 'pie',
+    data: chartData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Budget Allocation'
         }
       }
-    };
-    new Chart(ctx, config);
-    lucide.createIcons();
-  </script>
+    }
+  };
+  new Chart(ctx, config);
+  lucide.createIcons();
+</script>
 </body>
 </html>
