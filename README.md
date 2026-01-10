@@ -2,7 +2,7 @@
 
 🏷️ Tagline
 
-Your companion for smarter, stress-free budgeting - powere by Google Gemini.
+Your companion for smarter, stress-free budgeting - powered by Google Gemini.
 
 BudgetBuddy is an explainable AI-powered budgeting companion that turns a user’s income and goals into a clear, personalized monthly plan they can understand and control.
 
@@ -106,13 +106,6 @@ Web: Vercel
 Backend: Render or Railway
 
 Firebase: Fully managed services
-
-🌐 System Architecture
-[ Next.js Web ] ─┐
-                  ├── FastAPI Backend ── Gemini 3 Pro
-[ Flutter App ] ─┘
-                  │
-           Firebase (Auth + Firestore)
 
 
 🎨 Product Theme & Visual Identity
