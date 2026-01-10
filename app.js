@@ -14,7 +14,7 @@ let reminders = [];
 
 // Set view engine to EJS
 app.set('view engine', 'ejs');
-
+    
 // Middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
