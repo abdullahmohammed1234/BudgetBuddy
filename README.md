@@ -3,6 +3,7 @@
 **Manage the flow of your money with smarter, stress-free budgeting - powered with Google Gemini.**
 
 <br/>
+To start test the website, use "npm start" in the terminal
 
 ## About BudgetBuddy
 
