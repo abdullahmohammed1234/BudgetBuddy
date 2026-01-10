@@ -1,18 +1,23 @@
 # BudgetBuddy
 
-🏷️ Tagline
+**Manage the flow of your money with smarter, stress-free budgeting - powered with Google Gemini.**
 
-Your companion for smarter, stress-free budgeting - powered by Google Gemini.
+<br/>
 
-BudgetBuddy is an explainable AI-powered budgeting companion that turns a user’s income and goals into a clear, personalized monthly plan they can understand and control.
+## About BudgetBuddy
 
-🔖 Project Theme
+BudgetBuddy is an easy-to-navigate budgeting app that turns a user's income and financial goals into clear and personalized monthly plans they can follow and control. It is assisted with Google Gemini to optimize calculations and give clear insights you can trust. BudgetBuddy offers student plans to support financing tuition fees and timely payments.
 
-Financial Clarity for Everyday Decision-Making
+<br/>
 
-Many people want to budget responsibly but feel overwhelmed by complex tools, unclear advice, and financial anxiety. BudgetBuddy simplifies budgeting by combining educational AI reasoning with clear visual guidance—without black-box recommendations or financial risk.
+## Project Theme 
+**Financial Clarity for Everyday Decision-Making**
 
-❓ Problem Statement
+Many people want to budget responsibly but feel overwhelmed by complex tools, unreasonable goals, and financial anxiety. BudgetBuddy simplifies budgeting by combining educational AI reasoning with clear visual guidance without financial risk.
+
+<br/>
+
+## Problem Statement
 
 Students and young adults often want to manage their money better, but struggle because:
 
@@ -24,7 +29,9 @@ Tracking expenses creates stress rather than clarity
 
 As a result, many overspend unintentionally, avoid budgeting apps altogether, and fail to build consistent saving habits.
 
-✅ Solution Overview
+<br/>
+
+## Solution Overview
 
 BudgetBuddy transforms financial confusion into confidence by providing:
 
@@ -36,7 +43,11 @@ Simple, visual progress tracking
 
 Clear explanations behind every recommendation
 
-⚠️ BudgetBuddy is assistive and educational, not a financial advisory or predictive system. Users remain in full control of all decisions.
+<br/>
+
+## User Disclaimers
+
+BudgetBuddy is assistive and educational, not a financial advisory or predictive system. Users remain in full control of all decisions.
 
 🧠 AI Design Principles
 
@@ -50,7 +61,9 @@ User-editable outputs
 
 Designed for financial literacy, not automation
 
-🧱 Final Tech Stack
+<br/>
+
+## Final Tech Stack
 🌐 Web Frontend
 
 Framework: Next.js (App Router)
