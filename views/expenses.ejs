@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy - Expenses</title>
+  <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-background text-text font-primary">
+  <header class="bg-primary text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      </div>
+       <nav>
+        <a href="/onboarding" class="mr-4">Onboarding</a>
+        <a href="/budget" class="mr-4">Budget</a>
+        <a href="/progress" class="mr-4">Progress</a>
+        <a href="/about">About</a>
+        <a href="/expenses" class="mr-4">Expenses</a>
+        <a href="/goals" class="mr-4">Goals</a>
+        <a href="/reports" class="mr-4">Reports</a>
+        <a href="/tips">Tips</a>
+        <a href="/reminders" class="mr-4">Reminders</a>
+      </nav>
+    </div>
+  </header>
+  <main class="min-h-screen p-4">
+    <div class="max-w-6xl mx-auto w-full">
+      <h1 class="text-3xl font-heading text-primary mb-8 text-center">Expense Tracking</h1>
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <h2 class="text-2xl font-heading mb-4">Add New Expense</h2>
+          <form action="/expenses" method="POST" class="space-y-4">
+            <div>
+              <label for="amount" class="block text-sm font-medium">Amount</label>
+              <input type="number" id="amount" name="amount" step="0.01" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label for="category" class="block text-sm font-medium">Category</label>
+              <select id="category" name="category" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <% categories.forEach(cat => { %>
+                  <option value="<%= cat %>"><%= cat %></option>
+                <% }) %>
+              </select>
+            </div>
+            <div>
+              <label for="date" class="block text-sm font-medium">Date</label>
+              <input type="date" id="date" name="date" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label for="notes" class="block text-sm font-medium">Notes</label>
+              <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary transition">Add Expense</button>
+          </form>
+        </div>
+        <div>
+          <h2 class="text-2xl font-heading mb-4">Filter Expenses</h2>
+          <form action="/expenses" method="GET" class="space-y-4">
+            <div>
+              <label for="categoryFilter" class="block text-sm font-medium">Category</label>
+              <input type="text" id="categoryFilter" name="category" placeholder="Enter category" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="startDate" class="block text-sm font-medium">Start Date</label>
+                <input type="date" id="startDate" name="startDate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+              </div>
+              <div>
+                <label for="endDate" class="block text-sm font-medium">End Date</label>
+                <input type="date" id="endDate" name="endDate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+              </div>
+            </div>
+            <button type="submit" class="w-full bg-accent text-white py-2 px-4 rounded-md hover:bg-secondary transition">Filter</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-heading mb-4">Expenses List</h2>
+        <table class="min-w-full bg-white border border-gray-300">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="py-2 px-4 border-b">Date</th>
+              <th class="py-2 px-4 border-b">Category</th>
+              <th class="py-2 px-4 border-b">Amount</th>
+              <th class="py-2 px-4 border-b">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% expenses.forEach(expense => { %>
+              <tr>
+                <td class="py-2 px-4 border-b"><%= expense.date %></td>
+                <td class="py-2 px-4 border-b"><%= expense.category %></td>
+                <td class="py-2 px-4 border-b">$<%= expense.amount.toFixed(2) %></td>
+                <td class="py-2 px-4 border-b"><%= expense.notes %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-primary text-white p-4 mt-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2026 BudgetBuddy. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

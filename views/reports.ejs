@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BudgetBuddy - Reports</title>
+  <link href="/css/output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-background text-text font-primary">
+  <header class="bg-primary text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-heading">BudgetBuddy</h1>
+      </div>
+       <nav>
+        <a href="/onboarding" class="mr-4">Onboarding</a>
+        <a href="/budget" class="mr-4">Budget</a>
+        <a href="/progress" class="mr-4">Progress</a>
+        <a href="/about">About</a>
+        <a href="/expenses" class="mr-4">Expenses</a>
+        <a href="/goals" class="mr-4">Goals</a>
+        <a href="/reports" class="mr-4">Reports</a>
+        <a href="/tips">Tips</a>
+        <a href="/reminders" class="mr-4">Reminders</a>
+      </nav>
+    </div>
+  </header>
+  <main class="min-h-screen p-4">
+    <div class="max-w-6xl mx-auto w-full">
+      <h1 class="text-3xl font-heading text-primary mb-8 text-center">Financial Reports</h1>
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <h2 class="text-2xl font-heading mb-4">Spending by Category</h2>
+          <canvas id="categoryChart"></canvas>
+        </div>
+        <div>
+          <h2 class="text-2xl font-heading mb-4">Spending Trend</h2>
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl font-heading mb-4">Budget vs Spent</h2>
+          <canvas id="comparisonChart"></canvas>
+        </div>
+        <div>
+          <h2 class="text-2xl font-heading mb-4">Daily Spending</h2>
+          <canvas id="dailyChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-primary text-white p-4 mt-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2026 BudgetBuddy. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Category Chart
+    const ctx1 = document.getElementById('categoryChart').getContext('2d');
+    new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: <%- JSON.stringify(categoryLabels) %>,
+        datasets: [{
+          data: <%- JSON.stringify(categorySpent) %>,
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FF6384']
+        }]
+      }
+    });
+
+    // Trend Chart
+    const ctx2 = document.getElementById('trendChart').getContext('2d');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: <%- JSON.stringify(trendLabels) %>,
+        datasets: [{
+          label: 'Spending',
+          data: <%- JSON.stringify(dailySpending) %>,
+          borderColor: '#36A2EB',
+          fill: false
+        }]
+      }
+    });
+
+    // Comparison Chart
+    const ctx3 = document.getElementById('comparisonChart').getContext('2d');
+    new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: <%- JSON.stringify(comparisonLabels) %>,
+        datasets: [{
+          label: 'Budget',
+          data: <%- JSON.stringify(comparisonData.budget) %>,
+          backgroundColor: '#36A2EB'
+        }, {
+          label: 'Spent',
+          data: <%- JSON.stringify(comparisonData.spent) %>,
+          backgroundColor: '#FF6384'
+        }]
+      }
+    });
+
+    // Daily Chart
+    const ctx4 = document.getElementById('dailyChart').getContext('2d');
+    new Chart(ctx4, {
+      type: 'line',
+      data: {
+        labels: <%- JSON.stringify(trendLabels) %>,
+        datasets: [{
+          label: 'Daily Spending',
+          data: <%- JSON.stringify(dailySpending) %>,
+          borderColor: '#FFCE56',
+          fill: false
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
