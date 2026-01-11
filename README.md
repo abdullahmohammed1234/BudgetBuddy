@@ -15,6 +15,8 @@
    - Or create a `.env` file in the root directory with `GEMINI_API_KEY=your_key` (requires dotenv package)
 4. Run the app: `npm start`
 
+<br/>
+
 ## About BudgetBuddy
 
 BudgetBuddy is an easy-to-navigate budgeting app that turns a user's income and financial goals into clear and personalized monthly plans they can follow and control. It is assisted with Google Gemini to optimize calculations and give clear insights you can trust. BudgetBuddy offers student plans to support financing tuition fees and timely payments.
