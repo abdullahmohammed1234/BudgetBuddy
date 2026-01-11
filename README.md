@@ -61,3 +61,5 @@ Data storage and authentication are handled through Firebase Firestore and Fireb
 ## Future Endeavors 
 
 As it continues to evolve, BudgetBuddy aims to soon offer clearer insights, smarter planning, and deeper personalization over time, making budgeting feel more intuitive at every step. In the future, BudgetBuddy strives to securely connect with users’ personal banking and serve as a free, integrated budgeting tool available to students through their school portals, like SFU. 
+
+
