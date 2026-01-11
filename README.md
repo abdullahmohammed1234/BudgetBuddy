@@ -67,7 +67,7 @@ Designed for financial literacy, not automation
 ## Final Tech Stack
 🌐 Web Frontend
 
-Framework: Next.js (App Router)
+Framework: Express.js/EJS
 
 Styling: Tailwind CSS
 
@@ -91,7 +91,7 @@ Shared design system for consistency
 
 🧠 Backend & AI
 
-Backend: Python + FastAPI
+Backend: Node.js
 
 AI Model: Google Gemini 3 Pro
 
