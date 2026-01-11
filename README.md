@@ -5,6 +5,17 @@
 <br/>
 (To start test the website, type "npm start" in the terminal)
 
+## Setup
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up Google Gemini API key:
+   - Get an API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Set the environment variable: `GEMINI_API_KEY=your_api_key_here`
+   - On Windows, you can set it in the command prompt: `set GEMINI_API_KEY=your_key`
+   - Or create a `.env` file in the root directory with `GEMINI_API_KEY=your_key` (requires dotenv package)
+4. Run the app: `npm start`
+
 ## About BudgetBuddy
 
 BudgetBuddy is an easy-to-navigate budgeting app that turns a user's income and financial goals into clear and personalized monthly plans they can follow and control. It is assisted with Google Gemini to optimize calculations and give clear insights you can trust. BudgetBuddy offers student plans to support financing tuition fees and timely payments.

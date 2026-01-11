@@ -27,22 +27,12 @@
     <div class="max-w-6xl mx-auto w-full">
       <h1 class="text-3xl font-heading text-primary mb-8 text-center">Budgeting Tips</h1>
       <div class="space-y-6">
-        <div class="bg-white p-6 rounded-md shadow">
-          <h2 class="text-2xl font-heading mb-4">Track Your Expenses</h2>
-          <p>Keep a record of every penny you spend. This will help you understand where your money is going and identify areas to cut back.</p>
-        </div>
-        <div class="bg-white p-6 rounded-md shadow">
-          <h2 class="text-2xl font-heading mb-4">Set Realistic Goals</h2>
-          <p>Don't try to save too much too quickly. Set achievable goals and gradually increase your savings over time.</p>
-        </div>
-        <div class="bg-white p-6 rounded-md shadow">
-          <h2 class="text-2xl font-heading mb-4">Use the 50/30/20 Rule</h2>
-          <p>Allocate 50% of your income to needs, 30% to wants, and 20% to savings and debt repayment.</p>
-        </div>
-        <div class="bg-white p-6 rounded-md shadow">
-          <h2 class="text-2xl font-heading mb-4">Automate Your Savings</h2>
-          <p>Set up automatic transfers to your savings account so you don't have to think about it.</p>
-        </div>
+        <% tips.forEach(tip => { %>
+          <div class="bg-white p-6 rounded-md shadow">
+            <h2 class="text-2xl font-heading mb-4"><%= tip.title %></h2>
+            <p><%= tip.description %></p>
+          </div>
+        <% }); %>
       </div>
     </div>
   </main>

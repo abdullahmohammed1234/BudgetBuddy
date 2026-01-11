@@ -1,6 +1,15 @@
+require('dotenv').config();
 const express = require('express');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const app = express();
 const port = 3000;
+
+// Initialize Gemini AI only if key is set
+let model = null;
+if (process.env.GEMINI_API_KEY) {
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+  model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+}
 
 // In-memory storage for budget
 let currentBudget = null;
@@ -11,6 +20,42 @@ let savingsGoals = [];
 let savingsRate = 100; // assumed monthly savings
 let categories = ['Housing/Meal Plan', 'Food/Groceries', 'Transportation', 'Tuition/Loans', 'Books/Supplies', 'Entertainment/Social', 'Savings/Emergency'];
 let reminders = [];
+
+// Function to generate budgeting tips using Gemini
+async function generateBudgetTips() {
+  if (!model) {
+    console.log('Gemini model not initialized, using fallback tips');
+    return [
+      { title: 'Track Your Expenses', description: 'Keep a record of every penny you spend. This will help you understand where your money is going and identify areas to cut back.' },
+      { title: 'Set Realistic Goals', description: 'Don\'t try to save too much too quickly. Set achievable goals and gradually increase your savings over time.' },
+      { title: 'Use the 50/30/20 Rule', description: 'Allocate 50% of your income to needs, 30% to wants, and 20% to savings and debt repayment.' },
+      { title: 'Automate Your Savings', description: 'Set up automatic transfers to your savings account so you don\'t have to think about it.' }
+    ];
+  }
+  try {
+    const prompt = "Generate 5 practical and unique budgeting tips for college students. Format each tip with a title and a brief description.";
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    // Parse the text into tips array
+    const tips = text.split('\n\n').map(tip => {
+      const lines = tip.split('\n');
+      const title = lines[0].replace(/^\d+\.\s*/, '').trim();
+      const description = lines.slice(1).join(' ').trim();
+      return { title, description };
+    }).filter(tip => tip.title && tip.description);
+    return tips;
+  } catch (error) {
+    console.error('Error generating tips:', error);
+    // Fallback to static tips
+    return [
+      { title: 'Track Your Expenses', description: 'Keep a record of every penny you spend. This will help you understand where your money is going and identify areas to cut back.' },
+      { title: 'Set Realistic Goals', description: 'Don\'t try to save too much too quickly. Set achievable goals and gradually increase your savings over time.' },
+      { title: 'Use the 50/30/20 Rule', description: 'Allocate 50% of your income to needs, 30% to wants, and 20% to savings and debt repayment.' },
+      { title: 'Automate Your Savings', description: 'Set up automatic transfers to your savings account so you don\'t have to think about it.' }
+    ];
+  }
+}
 
 // Set view engine to EJS
 app.set('view engine', 'ejs');
@@ -124,8 +169,9 @@ app.get('/reports', (req, res) => {
   res.render('reports', { title: 'Reports', categoryLabels, categorySpent, trendLabels, dailySpending, comparisonLabels, comparisonData });
 });
 
-app.get('/tips', (req, res) => {
-  res.render('tips', { title: 'Tips' });
+app.get('/tips', async (req, res) => {
+  const tips = await generateBudgetTips();
+  res.render('tips', { title: 'Tips', tips });
 });
 
 app.get('/reminders', (req, res) => {
