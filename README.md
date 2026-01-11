@@ -1,9 +1,8 @@
 # BudgetBuddy
 
-**Manage the flow of your money with smarter, stress-free budgeting - powered with Google Gemini.**
+**Manage the flow of your money with smarter, stress-free budgeting - powered by Google Gemini.**
 
 <br/>
-(To start test the website, type "npm start" in the terminal)
 
 ## About BudgetBuddy
 
@@ -14,144 +13,41 @@ BudgetBuddy is an easy-to-navigate budgeting app that turns a user's income and 
 ## Project Theme 
 **Financial Clarity for Everyday Decision-Making**
 
-Many people want to budget responsibly but feel overwhelmed by complex tools, unreasonable goals, and financial anxiety. BudgetBuddy simplifies budgeting by combining educational AI reasoning with clear visual guidance without financial risk.
+BudgetBuddy simplifies budgeting by combining educational AI reasoning with clear visual guidance without financial risk.
 
 <br/>
 
 ## Problem Statement
 
-Students and young adults often want to manage their money better, but struggle because:
-
-Budgeting tools feel overwhelming or overly technical
-
-Advice isn’t personalized to their situation
-
-Tracking expenses creates stress rather than clarity
-
-As a result, many overspend unintentionally, avoid budgeting apps altogether, and fail to build consistent saving habits.
+Students and young adults often want to manage their money better but struggle to do so because they feel overwhelmed by rigid breakdowns, unreasonable goals, and financial anxiety. Additionally, advise given can feel unfit for their personal situation. Tracking expenses can create stress rather than clarity and reassurance. As a result, many end up spending against their initially intended budget, or avoid budgeting apps altogether, failing to build consistent saving habits.
 
 <br/>
 
 ## Solution Overview
 
-BudgetBuddy transforms financial confusion into confidence by providing:
-
-Personalized monthly budget breakdowns
-
-Category-based spending guidance
-
-Simple, visual progress tracking
-
-Clear explanations behind every recommendation
+BudgetBuddy turns financial confusion into confidence. It provides personalized monthly budgets, category-based spending guidance, and simple visual progress tracking. Every recommendation comes with a clear explanation, so users understand the reasoning behind their decisions. 
 
 <br/>
 
 ## User Disclaimers
 
-BudgetBuddy is assistive and educational, not a financial advisory or predictive system. Users remain in full control of all decisions.
-
-🧠 AI Design Principles
-
-Assistive, not advisory
-
-No financial predictions or guarantees
-
-Explainable recommendations
-
-User-editable outputs
-
-Designed for financial literacy, not automation
+BudgetBuddy is an assistive and educational tool, not a financial advisor or predictive system. All budgeting decisions remain the sole responsibility of the user. The app provides guidance and explanations to support informed decision-making, but does not replace professional financial advice. 
 
 <br/>
 
-## Final Tech Stack
-🌐 Web Frontend
+## Tech Stack
 
-Framework: Express.js/EJS
+BudgetBuddy’s web frontend is built with Next.js, using Tailwind CSS, shadcn/ui, Lucide Icons, Framer Motion, and Chart.js to handle layouts, components, animations, and charts. The mobile app is developed in Flutter, with a shared design system to keep the experience consistent across platforms. 
 
-Styling: Tailwind CSS
+The backend runs on Python and FastAPI. Google Gemini 3 Pro powers the Tips section, offering budget allocation reasoning, category recommendations, and plain-language financial explanations. 
 
-UI Components: shadcn/ui
+Data storage and authentication are handled through Firebase Firestore and Firebase Auth, supporting both email, password and Google sign-in. 
 
-Icons: Lucide Icons
+<br/>
 
-Animations: Framer Motion
+## Future Endeavors 
 
-Charts: Chart.js
-
-📱 Mobile App
-
-Framework: Flutter
-
-Fonts: Inter, Poppins
-
-Icons: Material Icons
-
-Shared design system for consistency
-
-🧠 Backend & AI
-
-Backend: Node.js
-
-AI Model: Google Gemini 3 Pro
-
-AI Responsibilities:
-
-Budget allocation reasoning
-
-Category recommendations
-
-Plain-language financial explanations
-
-🗄️ Database & Authentication
-
-Database: Firebase Firestore
-
-Authentication: Firebase Auth
-
-Email/password
-
-Google sign-in
-
-☁️ Deployment
-
-Web: Vercel
-
-Backend: Render or Railway
-
-Firebase: Fully managed services
-
-
-🎨 Product Theme & Visual Identity
-🎯 Theme
-
-Confidence Through Financial Clarity
-
-🎨 Color Palette
-
-Primary: Deep Indigo #1E1B4B
-
-Accent: Green-Blue #22C55E
-
-Secondary: Soft Teal #2DD4BF
-
-Text: Slate Gray #64748B
-
-Background: Off-White #F8FAFC
-
-Dark Mode: #0F172A
-
-✍️ Typography
-
-Primary: Inter
-
-Headings: Poppins
-
-🖼️ Visual Style
-
-Flat, soft-gradient illustrations
-
-Abstract finance icons
+As it continues to evolve, BudgetBuddy aims to soon offer clearer insights, smarter planning, and deeper personalization over time, making budgeting feel more intuitive at every step. In the future, BudgetBuddy strives to securely connect with users’ personal banking and serve as a free, integrated budgeting tool available to students through their school portals, like SFU. 
 
 Friendly, neutral characters
 
