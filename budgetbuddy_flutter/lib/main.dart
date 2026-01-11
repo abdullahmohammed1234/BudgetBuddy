@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'BudgetBunny',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primarySwatch: Colors.teal,
             visualDensity: VisualDensity.adaptivePlatformDensity,
