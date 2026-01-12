@@ -50,11 +50,9 @@ BudgetBuddy is an assistive and educational tool, not a financial advisor or pre
 
 ## Tech Stack
 
-BudgetBuddy’s web frontend is built with Next.js, using Tailwind CSS, shadcn/ui, Lucide Icons, Framer Motion, and Chart.js to handle layouts, components, animations, and charts. The mobile app is developed in Flutter, with a shared design system to keep the experience consistent across platforms. 
+BudgetBuddy’s web frontend is built with Express.js, using Tailwind CSS, shadcn/ui, Lucide Icons, Framer Motion, and Chart.js to handle layouts, components, animations, and charts. The mobile app is developed in Flutter, with a shared design system to keep the experience consistent across platforms. 
 
-The backend runs on Python and FastAPI. Google Gemini 3 Pro powers the Tips section, offering budget allocation reasoning, category recommendations, and plain-language financial explanations. 
-
-Data storage and authentication are handled through Firebase Firestore and Firebase Auth, supporting both email, password and Google sign-in. 
+The backend runs on Node.js. Google Gemini 3 Pro powers the Tips section, offering budget allocation reasoning, category recommendations, and plain-language financial explanations. 
 
 <br/>
 
